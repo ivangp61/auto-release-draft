@@ -1,16 +1,16 @@
 {
-  "name": "typescript-action",
-  "description": "GitHub Actions TypeScript template",
+  "name": "auto-release-draft",
+  "description": "Drafts a GitHub release with the changes introduced by a newly created version tag.",
   "version": "0.0.0",
-  "author": "",
+  "author": "Ivan Gonzalez Perez",
   "private": true,
-  "homepage": "https://github.com/actions/typescript-action",
+  "homepage": "https://github.com/ivangp61/auto-release-draft.git",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git@github.com:ivangp61/auto-release-draft.git"
   },
   "bugs": {
-    "url": "https://github.com/actions/typescript-action/issues"
+    "url": "https://github.com/ivangp61/auto-release-draft.git"
   },
   "keywords": [
     "actions",
@@ -85,6 +85,8 @@
     "prettier": "^3.2.5",
     "prettier-eslint": "^16.3.0",
     "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.4.3"
   }
 }
