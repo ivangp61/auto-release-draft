@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-import {run} from '../src/main'
+import { run } from '../src/main'
 
 jest.mock('@actions/core')
 
