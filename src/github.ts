@@ -1,7 +1,7 @@
 import * as core from '@actions/core'
 import * as version from './version'
 import * as markdown from './markdown'
-const { GitHub, context } = require('@actions/github');
+const { GitHub, context } = require('@actions/github')
 
 export async function createReleaseDraft(
   versionTag: string,
@@ -10,7 +10,7 @@ export async function createReleaseDraft(
 ): Promise<string> {
   // const octokit = new github.GitHub(repoToken)
   // const octokit = new Octokit({ auth: `personal-access-token123` });
-  const github = new GitHub(process.env.GITHUB_TOKEN);
+  const github = new GitHub(process.env.GITHUB_TOKEN)
 
   const response = await github.repo.createRelease({
     owner: github.context.repo.owner,

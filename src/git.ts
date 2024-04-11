@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
 import { exec } from '@actions/exec'
-import {ExecOptions} from '@actions/exec/lib/interfaces'
+import { ExecOptions } from '@actions/exec/lib/interfaces'
 
 export async function getChangesIntroducedByTag(tag: string): Promise<string> {
   const previousVersionTag = await getPreviousVersionTag(tag)
@@ -10,7 +10,9 @@ export async function getChangesIntroducedByTag(tag: string): Promise<string> {
     : getCommitMessagesFrom(tag)
 }
 
-export async function getPreviousVersionTag(tag: string): Promise<string | null> {
+export async function getPreviousVersionTag(
+  tag: string
+): Promise<string | null> {
   let previousTag = ''
 
   const options: ExecOptions = {
@@ -41,7 +43,10 @@ export async function getPreviousVersionTag(tag: string): Promise<string | null>
   return exitCode === 0 ? previousTag.trim() : null
 }
 
-export async function getCommitMessageBetween(firstTag: string, secondTag: string): Promise<string> {
+export async function getCommitMessageBetween(
+  firstTag: string,
+  secondTag: string
+): Promise<string> {
   let commitMessages = ''
 
   const options: ExecOptions = {
