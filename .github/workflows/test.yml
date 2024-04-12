@@ -19,3 +19,5 @@ jobs:
         uses: ./
       - name: Print the URL of the release draft
         run: echo ${{ steps.create-release-draft.outputs.release-url }}
+      - name: Show the tag
+        run: echo ${{ steps.create-release-draft.outputs.tag }}
