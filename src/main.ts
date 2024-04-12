@@ -2,7 +2,6 @@ import * as core from '@actions/core'
 
 export async function run(): Promise<void> {
   try {
-
     core.setOutput('release-url', 'the url')
   } catch (error) {
     // Fail the workflow run if an error occurs

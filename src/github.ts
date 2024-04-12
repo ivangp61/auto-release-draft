@@ -2,8 +2,7 @@ import * as core from '@actions/core'
 import * as version from './version'
 import * as markdown from './markdown'
 // import * as github from '@actions/github'
-import  {Octokit}  from '@octokit/rest';
-
+import { Octokit } from '@octokit/rest'
 
 export async function createReleaseDraft(
   versionTag: string,
@@ -14,8 +13,8 @@ export async function createReleaseDraft(
 
   // const github = new GitHub.(process.env.GITHUB_TOKEN)
   const octokit = new Octokit({
-      auth: repoToken}
-    );
+    auth: repoToken
+  })
 
   const response = await octokit.repos.createRelease({
     owner: octokit.repos.get.arguments(),
