@@ -15,7 +15,7 @@ export async function run(): Promise<void> {
     // let theOwner = ghub.context.repo.owner;
     // core.debug(theOwner);
 
-    console.log(tag);
+    // console.log(tag);
 
     if (tag && version.isSemVer(tag)) {
       const changeLog = await git.getChangesIntroducedByTag(tag);      
