@@ -5,7 +5,9 @@ export async function run(): Promise<void> {
 
     const myTag = 'my tag';
 
-    core.setOutput('release-url', 'the url')
+    console.log(myTag);
+
+    core.setOutput('release-url', myTag)
     core.setOutput('tag', myTag)
   } catch (error) {
     // Fail the workflow run if an error occurs
