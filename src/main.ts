@@ -1,6 +1,7 @@
 import * as core from '@actions/core';
 import * as event from './event';
 import * as version from './version';
+import * as git from './git';
 // import * as github from '@actions/github';
 
 export async function run(): Promise<void> {
@@ -11,7 +12,7 @@ export async function run(): Promise<void> {
     // console.log(myTag);
 
     if (tag && version.isSemVer(tag)) {
-      // const changeLog = await git.getChangesIntroducedByTag(tag)
+      const changeLog = await git.getChangesIntroducedByTag(tag)
 
       // releaseUrl = await github.createReleaseDraft(tag, token, changeLog)
     }
