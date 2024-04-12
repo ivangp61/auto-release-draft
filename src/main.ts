@@ -5,7 +5,7 @@ export async function run(): Promise<void> {
 
     const myTag = 'my tag';
 
-    console.log(myTag);
+    // console.log(myTag);
 
     core.setOutput('release-url', myTag)
     core.setOutput('tag', myTag)
