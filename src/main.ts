@@ -2,8 +2,11 @@ import * as core from '@actions/core'
 
 export async function run(): Promise<void> {
   try {
+
+    let myTag = 'my tag';
+
     core.setOutput('release-url', 'the url')
-    core.setOutput('tag', 'my tag')
+    core.setOutput('tag', myTag)
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
