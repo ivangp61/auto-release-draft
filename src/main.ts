@@ -2,10 +2,11 @@ import * as core from '@actions/core'
 import * as event from './event'
 import * as version from './version'
 import * as git from './git'
-// import * as github from './github'
+import * as github from './github'
 
 export async function run(): Promise<void> {
   try {
+    const token = core.getInput('repo-token')
     const tag = event.getCreatedTag()
     let releaseUrl = ''
 
@@ -15,7 +16,7 @@ export async function run(): Promise<void> {
       releaseUrl = await github.createReleaseDraft(tag, token, changeLog)
     }
 
-    core.setOutput('release-url', 'example.com')
+    core.setOutput('release-url', releaseUrl)
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
