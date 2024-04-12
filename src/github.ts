@@ -1,7 +1,7 @@
 import * as core from '@actions/core'
 import * as version from './version'
 import * as markdown from './markdown'
-const github = require('@actions/github');
+const github = require('@actions/github')
 // import * as github from '@actions/github'
 
 export async function createReleaseDraft(
@@ -9,7 +9,7 @@ export async function createReleaseDraft(
   repoToken: string,
   changeLog: string
 ): Promise<string> {
-  // const octokit = new github.GitHub(repoToken)  
+  // const octokit = new github.GitHub(repoToken)
 
   // const github = new GitHub.(process.env.GITHUB_TOKEN)
   const octokit = new github.getOctokit(repoToken)
