@@ -6,7 +6,7 @@ author: 'Ivan Gonzalez Perez'
 outputs:
   release-url:
     description: 'The URL of the GitHub release that was drafted'
-  tag: 
+  tag:
     description: 'I want to see the tag value'
 runs:
   using: node20

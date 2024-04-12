@@ -2,8 +2,7 @@ import * as core from '@actions/core'
 
 export async function run(): Promise<void> {
   try {
-
-    const myTag = 'my tag';
+    const myTag = 'my tag'
 
     // console.log(myTag);
 
