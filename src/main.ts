@@ -3,7 +3,7 @@ import * as core from '@actions/core'
 export async function run(): Promise<void> {
   try {
 
-    let myTag = 'my tag';
+    const myTag = 'my tag';
 
     core.setOutput('release-url', 'the url')
     core.setOutput('tag', myTag)
