@@ -8,13 +8,14 @@ import * as ghub from '@actions/github'
 export async function run(): Promise<void> {
   try {
     const token = core.getInput('repo-token');
+
     const tag = event.getCreatedTag();
     let releaseUrl = '';
+    
     // let theOwner = ghub.context.repo.owner;
     // core.debug(theOwner);
 
-    // console.log(myTag);
-    console.log(token);
+    console.log(tag);
 
     if (tag && version.isSemVer(tag)) {
       const changeLog = await git.getChangesIntroducedByTag(tag);      
