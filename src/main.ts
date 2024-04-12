@@ -1,18 +1,20 @@
-import * as core from '@actions/core';
-import * as event from './event';
-import * as version from './version';
-import * as git from './git';
+import * as core from '@actions/core'
+import * as event from './event'
+import * as version from './version'
+import * as git from './git'
 // import * as github from '@actions/github';
 
 export async function run(): Promise<void> {
   try {
-    const tag = event.getCreatedTag();
+    const tag = event.getCreatedTag()
     // let releaseUrl = '';
 
     // console.log(myTag);
 
     if (tag && version.isSemVer(tag)) {
       const changeLog = await git.getChangesIntroducedByTag(tag)
+
+      core.setOutput('change-log', changeLog)
 
       // releaseUrl = await github.createReleaseDraft(tag, token, changeLog)
     }
