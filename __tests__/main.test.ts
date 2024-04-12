@@ -11,14 +11,4 @@ describe('When running the action', () => {
     await run()
     expect(fakeSetOutput).toHaveBeenCalledWith('release-url', expect.anything())
   })
-
-  test('it should set the tag output parameter', async () => {
-    await run()
-    expect(fakeSetOutput).toHaveBeenCalledWith('tag', expect.anything())
-  })
-
-  test('it should set the change-log output parameter', async () => {
-    await run()
-    expect(fakeSetOutput).toHaveBeenCalledWith('change-log', expect.anything())
-  })
 })

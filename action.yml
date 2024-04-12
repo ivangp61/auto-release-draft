@@ -10,10 +10,6 @@ inputs:
 outputs:
   release-url:
     description: 'The URL of the GitHub release that was drafted'
-  tag:
-    description: 'I want to see the tag value'
-  change-log:
-    description: 'I want to see the change log value'
 runs:
   using: node20
   main: dist/index.js

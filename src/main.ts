@@ -13,15 +13,12 @@ export async function run(): Promise<void> {
     // console.log(myTag);
 
     if (tag && version.isSemVer(tag)) {
-      const changeLog = await git.getChangesIntroducedByTag(tag);
-
-      core.setOutput('change-log', changeLog);
+      const changeLog = await git.getChangesIntroducedByTag(tag);      
 
       releaseUrl = await github.createReleaseDraft(tag, token, changeLog);
     }
 
-    core.setOutput('release-url', releaseUrl);
-    core.setOutput('tag', tag);
+    core.setOutput('release-url', releaseUrl);    
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message);
