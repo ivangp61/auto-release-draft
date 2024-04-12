@@ -17,7 +17,7 @@ export async function run(): Promise<void> {
     }
 
     // core.setOutput('release-url', releaseUrl)
-    core.setOutput('tag', tag)
+    core.setOutput('tag', 'my tag')
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
