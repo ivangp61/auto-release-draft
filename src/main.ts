@@ -7,11 +7,12 @@ import * as git from './git'
 export async function run(): Promise<void> {
   try {
     const tag = event.getCreatedTag()
+    let releaseUrl = ''
 
     if (tag && version.isSemVer(tag)) {
       const changeLog = await git.getChangesIntroducedByTag(tag)
 
-      // releaseUrl = await github.createReleaseDraft(tag, token, changeLog)
+      releaseUrl = await github.createReleaseDraft(tag, token, changeLog)
     }
 
     core.setOutput('release-url', 'example.com')
