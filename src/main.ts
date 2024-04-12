@@ -3,7 +3,7 @@ import * as event from './event'
 import * as version from './version'
 import * as git from './git'
 import * as github from './github';
-import * as ghub from '@actions/github'
+// import * as ghub from '@actions/github'
 
 export async function run(): Promise<void> {
   try {
