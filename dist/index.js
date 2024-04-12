@@ -24953,7 +24953,10 @@ exports.run = void 0;
 const core = __importStar(__nccwpck_require__(2186));
 async function run() {
     try {
-        core.setOutput('release-url', 'the url');
+        const myTag = 'my tag';
+        // console.log(myTag);
+        core.setOutput('release-url', myTag);
+        core.setOutput('tag', myTag);
     }
     catch (error) {
         // Fail the workflow run if an error occurs
