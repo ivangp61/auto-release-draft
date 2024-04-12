@@ -1,11 +1,19 @@
 import * as core from '@actions/core'
-// import * as event from './event'
-// import * as version from './version'
-// import * as git from './git'
+import * as event from './event'
+import * as version from './version'
+import * as git from './git'
 // import * as github from './github'
 
 export async function run(): Promise<void> {
   try {
+    const tag = event.getCreatedTag()
+
+    if (tag && version.isSemVer(tag)) {
+      const changeLog = await git.getChangesIntroducedByTag(tag)
+
+      // releaseUrl = await github.createReleaseDraft(tag, token, changeLog)
+    }
+
     core.setOutput('release-url', 'example.com')
   } catch (error) {
     // Fail the workflow run if an error occurs
