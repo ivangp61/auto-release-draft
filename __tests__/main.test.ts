@@ -11,6 +11,7 @@ describe('When running the action', () => {
     await run()
     expect(fakeSetOutput).toHaveBeenCalledWith('release-url', expect.anything())
   })
+  
 
   // test('it should set the tag output parameter', async () => {
   //   await run()
