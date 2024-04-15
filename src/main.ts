@@ -3,24 +3,14 @@ import * as event from './event'
 import * as version from './version'
 import * as git from './git'
 import * as github from './github';
-import * as ghub from '@actions/github'
+
 
 export async function run(): Promise<void> {
   try {
     const token = core.getInput('repo-token');
-    // const octokit = ghub.getOctokit(token).rest;
-    // core.debug(`the Ocotokit contents:' ${octokit.users.listEmailsForAuthenticatedUser.toString()}`);
-    let eventName = ghub.context.eventName;
-    core.debug(`The event name at main.ts is ${eventName}`);
 
     const tag = event.getCreatedTag();
     let releaseUrl = '';
-    // let eventName = '';
-    
-    // let theOwner = ghub.context.repo.owner;
-    // core.debug(theOwner);
-
-    // console.log(tag);
 
     if (tag && version.isSemVer(tag)) {
       const changeLog = await git.getChangesIntroducedByTag(tag);      
@@ -28,7 +18,7 @@ export async function run(): Promise<void> {
       releaseUrl = await github.createReleaseDraft(tag, token, changeLog);
     }
 
-    core.setOutput('event-name', eventName);
+    core.setOutput('event-name', 'some event name');
     core.setOutput('release-url', releaseUrl);
   } catch (error) {
     // Fail the workflow run if an error occurs
