@@ -8,9 +8,10 @@ import * as ghub from '@actions/github'
 export async function run(): Promise<void> {
   try {
     const token = core.getInput('repo-token');
-    const octokit = ghub.getOctokit(token).rest;
-    core.debug(`the Ocotokit contents:' ${octokit.users.listEmailsForAuthenticatedUser.toString()}`);
+    // const octokit = ghub.getOctokit(token).rest;
+    // core.debug(`the Ocotokit contents:' ${octokit.users.listEmailsForAuthenticatedUser.toString()}`);
     let eventName = ghub.context.eventName;
+    core.debug(`The event name at main.ts is ${eventName}`);
 
     const tag = event.getCreatedTag();
     let releaseUrl = '';
