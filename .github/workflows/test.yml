@@ -20,8 +20,8 @@ jobs:
         id: create-release-draft
         uses: ./
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{secrets.GITHUB_TOKEN}}
       - name: Print the URL of the release draft
         run: echo ${{ steps.create-release-draft.outputs.release-url }}             
       - name: Print the event name
-        run: echo ${{ steps.create-release-draft.outputs.eventname }}
+        run: echo ${{ steps.create-release-draft.outputs.event-name }}
