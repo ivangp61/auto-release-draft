@@ -33,6 +33,7 @@ export async function run(): Promise<void> {
     if (error instanceof Error) {
       core.setFailed(error.message);
       core.debug(error.message);
+    }
   }
 }
 
