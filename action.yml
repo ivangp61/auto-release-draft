@@ -8,6 +8,8 @@ inputs:
     description: 'The GITHUB_TOKEN used to authenticate to the current'
     required: true
 outputs:
+  event-name:
+    description: 'The event name'
   release-url:
     description: 'The URL of the GitHub release that was drafted'
 runs:
