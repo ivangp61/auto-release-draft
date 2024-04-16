@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-// import * as event from './event'
+import * as event from './event'
 // import * as version from './version'
 // import * as git from './git'
 // import * as github from './github';
@@ -9,7 +9,8 @@ export async function run(): Promise<void> {
   try {
     // const token = core.getInput('repo-token');
 
-    // const tag = event.getCreatedTag();
+    const tag = event.getCreatedTag();
+    console.log(tag);
     // let releaseUrl = '';
 
     // if (tag && version.isSemVer(tag)) {
