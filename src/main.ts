@@ -1,20 +1,20 @@
 import * as core from '@actions/core'
 import * as event from './event'
 import * as version from './version'
-// import * as git from './git'
-// import * as github from './github';
+import * as git from './git'
+import * as github from './github'
 
 export async function run(): Promise<void> {
   try {
-    // const token = core.getInput('repo-token');
+    const token = core.getInput('repo-token')
 
     const tag = event.getCreatedTag()
-    const releaseUrl = 'https://example.com'
+    let releaseUrl = 'https://example.com'
     const eventName = 'Some event'
 
     if (tag && version.isSemVer(tag)) {
-      // const changeLog = await git.getChangesIntroducedByTag(tag)
-      // releaseUrl = await github.createReleaseDraft(tag, token, changeLog);
+      const changeLog = await git.getChangesIntroducedByTag(tag)
+      releaseUrl = await github.createReleaseDraft(tag, token, changeLog)
     }
 
     core.setOutput('release-url', releaseUrl)
