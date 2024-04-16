@@ -8,10 +8,6 @@ describe('When running the action', () => {
     typeof core.setOutput
   >
 
-  test('it should set the release-url output parameter', async () => {
-    await run()
-    expect(fakeSetOutput).toHaveBeenCalledWith('event-name', expect.anything())
-  })
 
   test('it should set the release-url output parameter', async () => {
     await run()
