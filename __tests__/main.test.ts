@@ -12,7 +12,7 @@ describe('When running the action', () => {
     await run()
     expect(fakeSetOutput).toHaveBeenCalledWith('release-url', expect.anything())
   })
-  test('it should set the release-url output parameter', async () => {
+  test('it should set the event-name output parameter', async () => {
     await run()
     expect(fakeSetOutput).toHaveBeenCalledWith('event-name', expect.anything())
   })

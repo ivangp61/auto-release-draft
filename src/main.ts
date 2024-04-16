@@ -1,7 +1,7 @@
 import * as core from '@actions/core'
 import * as event from './event'
 import * as version from './version'
-import * as git from './git'
+// import * as git from './git'
 // import * as github from './github';
 
 export async function run(): Promise<void> {
@@ -9,8 +9,8 @@ export async function run(): Promise<void> {
     // const token = core.getInput('repo-token');
 
     const tag = event.getCreatedTag()
-    let releaseUrl = 'https://example.com'
-    let eventName = 'Some event'
+    const releaseUrl = 'https://example.com'
+    const eventName = 'Some event'
 
     if (tag && version.isSemVer(tag)) {
       // const changeLog = await git.getChangesIntroducedByTag(tag)

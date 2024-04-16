@@ -32552,13 +32552,14 @@ exports.run = void 0;
 const core = __importStar(__nccwpck_require__(2186));
 const event = __importStar(__nccwpck_require__(1213));
 const version = __importStar(__nccwpck_require__(1946));
+// import * as git from './git'
 // import * as github from './github';
 async function run() {
     try {
         // const token = core.getInput('repo-token');
         const tag = event.getCreatedTag();
-        let releaseUrl = 'https://example.com';
-        let eventName = 'Some event';
+        const releaseUrl = 'https://example.com';
+        const eventName = 'Some event';
         if (tag && version.isSemVer(tag)) {
             // const changeLog = await git.getChangesIntroducedByTag(tag)
             // releaseUrl = await github.createReleaseDraft(tag, token, changeLog);
