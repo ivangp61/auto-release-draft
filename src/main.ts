@@ -10,7 +10,7 @@ export async function run(): Promise<void> {
     // const token = core.getInput('repo-token');
 
     const tag = event.getCreatedTag();    
-    let releaseUrl = '';
+    let releaseUrl = 'https://example.com';
 
     if (tag && version.isSemVer(tag)) {
       const changeLog = await git.getChangesIntroducedByTag(tag);      
@@ -19,7 +19,7 @@ export async function run(): Promise<void> {
     }
 
     
-    core.setOutput('release-url', 'https://example.com');
+    core.setOutput('release-url', releaseUrl);
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) {
