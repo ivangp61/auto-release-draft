@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-  create:
 jobs:
   test:
     name: Test
@@ -22,4 +21,4 @@ jobs:
       - name: Print the event name
         run: echo ${{ steps.create-release-draft.outputs.event-name }}
       - name: Get tag name
-        run: echo "$GITHUB_EVENT_NAME"
+        run: echo "$RUNNER_OS"
