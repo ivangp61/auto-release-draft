@@ -21,5 +21,3 @@ jobs:
         run: echo ${{ steps.create-release-draft.outputs.release-url }}
       - name: Print the event name
         run: echo ${{ steps.create-release-draft.outputs.event-name }}
-      - name: Get tag name
-        run: echo "$GITHUB_REF_TYPE"
