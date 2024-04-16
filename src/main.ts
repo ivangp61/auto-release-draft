@@ -17,8 +17,8 @@ export async function run(): Promise<void> {
       releaseUrl = await github.createReleaseDraft(tag, token, changeLog)
     }
 
-    core.setOutput('release-url', releaseUrl)
-    core.setOutput('event-name', eventName)
+    core.setOutput('release-url', releaseUrl);
+    core.setOutput('event-name', eventName);
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) {
