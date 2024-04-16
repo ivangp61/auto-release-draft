@@ -9,8 +9,7 @@ export async function createReleaseDraft(
   repoToken: string,
   changeLog: string
 ): Promise<string> {
-
-  const octokit = github.getOctokit(repoToken).rest;
+  const octokit = github.getOctokit(repoToken).rest
 
   // const github = new GitHub.(process.env.GITHUB_TOKEN)
   // const octokit = new Octokit({
@@ -25,13 +24,13 @@ export async function createReleaseDraft(
     body: markdown.toUnorderedList(changeLog),
     prerelease: version.isPrerelease(versionTag),
     draft: true
-  });
+  })
 
   if (response.status !== 201) {
-    throw new Error(`Failed to create the release: ${response.status}`);
+    throw new Error(`Failed to create the release: ${response.status}`)
   }
 
-  core.info(`Created release draft ${response.data.name}`);
+  core.info(`Created release draft ${response.data.name}`)
 
-  return response.data.html_url;
+  return response.data.html_url
 }

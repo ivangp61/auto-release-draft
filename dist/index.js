@@ -33880,24 +33880,25 @@ const core = __importStar(__nccwpck_require__(2186));
 const event = __importStar(__nccwpck_require__(1213));
 const version = __importStar(__nccwpck_require__(1946));
 const git = __importStar(__nccwpck_require__(6350));
-// import * as github from '@actions/github';
+// import * as github from './github';
 async function run() {
     try {
+        // const token = core.getInput('repo-token');
         const tag = event.getCreatedTag();
-        // let releaseUrl = '';
-        // console.log(myTag);
+        let releaseUrl = 'https://example.com';
         if (tag && version.isSemVer(tag)) {
             const changeLog = await git.getChangesIntroducedByTag(tag);
-            core.setOutput('change-log', changeLog);
-            // releaseUrl = await github.createReleaseDraft(tag, token, changeLog)
+            // releaseUrl = await github.createReleaseDraft(tag, token, changeLog);
         }
-        core.setOutput('release-url', tag);
-        core.setOutput('tag', tag);
+        core.setOutput('release-url', releaseUrl);
     }
     catch (error) {
         // Fail the workflow run if an error occurs
-        if (error instanceof Error)
+        if (error instanceof Error) {
             core.setFailed(error.message);
+            console.log(error.message);
+            core.debug(error.message);
+        }
     }
 }
 exports.run = run;
