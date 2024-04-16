@@ -10,14 +10,15 @@ export async function run(): Promise<void> {
 
     const tag = event.getCreatedTag()
     let releaseUrl = 'https://example.com'
+    let eventName = 'Some event'
 
     if (tag && version.isSemVer(tag)) {
-      const changeLog = await git.getChangesIntroducedByTag(tag)
-
+      // const changeLog = await git.getChangesIntroducedByTag(tag)
       // releaseUrl = await github.createReleaseDraft(tag, token, changeLog);
     }
 
-    core.setOutput('release-url', releaseUrl)    
+    core.setOutput('release-url', releaseUrl)
+    core.setOutput('event-name', eventName)
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) {

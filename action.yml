@@ -6,6 +6,8 @@ author: 'Ivan Gonzalez Perez'
 outputs:
   release-url:
     description: 'The URL of the GitHub release that was drafted'
+  event-name:
+    description: 'The name name created'
 runs:
   using: node20
   main: dist/index.js
