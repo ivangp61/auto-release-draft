@@ -22,4 +22,4 @@ jobs:
       - name: Print the event name
         run: echo ${{ steps.create-release-draft.outputs.event-name }}
       - name: Get tag name
-        run: echo $GITHUB_EVENT_NAME
+        run: echo "$GITHUB_EVENT_NAME"
